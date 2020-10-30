@@ -1,0 +1,45 @@
+.content {
+    padding: 2%;
+    width: 800px;
+    margin: 1% auto;
+    border: 1px solid #efefef;
+
+}
+
+a {
+    font-size: 16;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #c203fc
+}
+
+.content h1, h2, h3 {
+
+    margin: 15px auto;
+    text-align: center;
+    
+
+}
+.add-task {
+
+    padding: 2%;
+    margin: 1% auto;
+    width: 600px;
+    border: 1px solid #efefef;
+}
+
+
+.add-task h1, h3 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.edit {
+    padding: 2%;
+    margin: 1% auto;
+    width: 600px;
+}
