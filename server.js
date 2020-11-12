@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const dotenv = require('dotenv').config()
 const User = require('./model/userModel')
-
 const session = require('express-session')
+const MemoryStore = require('memorystore')(session)
 app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'ejs')
@@ -20,7 +20,11 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    maxAge: 60 * 60 * 1000
+    maxAge: 60 * 60 * 1000,
+    store: new MemoryStore({
+        checkPeriod: 86400000
+      }),
+  
 }))
 
 app.use(addSessionVar)
