@@ -22,8 +22,14 @@ router.post('/', async (req, res) => {
 	if (useremail && userpassword) {
 
 		await User.getUserByEmail(useremail)
+		.then((result) => {
+			if(result){
+				return result
+			} else {
+				res.send('Incorrect Username!');
+			}	
+		})
 		.then(async (result) => {
-			console.log(result)
 
 			const isValid = await bcrypt.compare(userpassword, result.userpassword)
 
@@ -33,12 +39,12 @@ router.post('/', async (req, res) => {
 				req.session.iduser = result.iduser
 				res.redirect('/')
 			} else {
-				res.send('Incorrect Username and/or Password!');
+				res.send('Incorrect Password!');
 			}			
 		})
 	} else {
 		res.send('Please enter Username and Password!');
 	}
-});
+})
 
 module.exports = router
