@@ -38,10 +38,10 @@ class User {
         })
     }
 
-    static async getUserById(id) {
+    static async getUserByEmail(email) {
 
         const allUsers = await User.getAllUsers()
-        const currentId = allUsers.find(user => user.iduser == id)
+        const currentId = allUsers.find(user => user.useremail == email)
 
         return currentId
     }

@@ -14,28 +14,28 @@ router.get('/logout', (req, res) => {
     }) 
 })
 
-router.post('/', function(req, res) {
+router.post('/', async (req, res) => {
     
 	const useremail = req.body.useremail;
     const userpassword = req.body.userpassword;
-	
-	if (useremail) {
-		pool.query(
-            'SELECT * FROM users WHERE useremail = ?', 
-            [useremail], 
-            (error, results) => {
-                handleData = JSON.parse(JSON.stringify(results))
-                
-			if (bcrypt.compare(userpassword, handleData[0].userpassword)) {
+
+	if (useremail && userpassword) {
+
+		await User.getUserByEmail(useremail)
+		.then(async (result) => {
+			console.log(result)
+
+			const isValid = await bcrypt.compare(userpassword, result.userpassword)
+
+			if(isValid){
 				req.session.loggedin = true;
-                req.session.useremail = useremail;
-				req.session.iduser = handleData[0].iduser
-                
-				res.redirect('/');
+				req.session.useremail = useremail;
+				req.session.iduser = result.iduser
+				res.redirect('/')
 			} else {
 				res.send('Incorrect Username and/or Password!');
 			}			
-		});
+		})
 	} else {
 		res.send('Please enter Username and Password!');
 	}
