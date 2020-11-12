@@ -48,6 +48,6 @@ app.use(function(req, res, next) {
 
 const port = process.env.APP_PORT 
 
-app.listen(port || 5000, (error) => {
+app.listen(port || 8080, (error) => {
     console.log('Server started', new Date())
 })
