@@ -19,7 +19,7 @@ router.get('/',   async (req, res) => {
         })
 
 	} else {
-		res.redirect('login.ejs')
+		res.redirect('login')
 	}
     
 })
