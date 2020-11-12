@@ -46,7 +46,7 @@ app.use(function(req, res, next) {
     res.status(404).send('Sorry cant find that!');
   });
 
-const port = process.env.APP_PORT 
+const port = process.env.PORT 
 
 app.listen(port || 8080, (error) => {
     console.log('Server started', new Date())
