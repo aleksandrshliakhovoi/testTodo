@@ -3,11 +3,17 @@
 <section class="content">
 
     <h1>My todo</h1>
-
-
-    <h3><a href="/create">Add tasks</a></h3>
-
-
+        <br><br>
+        <h3>Add task</h3>
+        <br>
+        <form method="POST" action="create">
+           <label>Task</label><br>
+           <input name="task" class="field"/><br><br>
+           <label>Deadline</label><br>
+           <input name="date" type="date" class="field"><br><br>
+           <h4><input type="submit" value="Send" id="create-task-btn" ></h4>
+        </form>
+    <br><br>
     <table>
         <tr><th>Task</th><th>Deadline</th><th></th></tr>
 
@@ -16,9 +22,14 @@
                 <td><%= obj.taskcontent %></td>
                 <td><%= obj.taskdeadline %></td>
                 <td>
-                    <a href="/edit/<%= obj.idtasks %>"> Edit </a>|
+                    
+                    <form action="/edit/<%= obj.idtasks %>" style="display:inline;">
+                        <!-- <input type="submit" value="Edit" /> -->
+                        <button type="submit"><img src="/img/edit.png" alt="edit" width="20" height="20"></button>
+                    </form>
                     <form action="delete/<%= obj.idtasks %>" method="POST" style="display:inline;">
-                        <input type="submit" value="Delete" />
+                        <!-- <input type="submit" value="Delete" /> -->
+                        <button type="submit"><img src="/img/delete.jpg" alt="edit" width="20" height="20"></button>
                     </form>
                 </td>
             </tr>

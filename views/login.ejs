@@ -1,0 +1,23 @@
+<%- include('header.ejs') %>
+
+
+<section class="login-form">
+    <h1>Login</h1>    
+
+    <form action="/login" method="POST">
+        <div><label for="email"></label>
+            <input type="email" id="email" name="useremail" placeholder="Email" required >
+        </div>  
+        <div><label for="password"></label>
+            <input type="password" id="password" name="userpassword" placeholder="Password" required>
+        </div>     
+        <button type="submit" class="login-btn">Login</button>
+        
+    </form>
+    <form action="/login/logout">
+        <button type="submit" class="login-btn">Log out</button>
+    </form>
+</section>
+
+
+<%- include('footer.ejs') %>

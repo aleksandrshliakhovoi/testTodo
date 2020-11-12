@@ -1,0 +1,66 @@
+<p><% sessionIduser %></p>
+
+<%- include('header.ejs') %>
+
+
+    <% projects.forEach(function(project){ %>          
+        <% if (project.iduser == iduser) { %> 
+            <section class="project">
+                <div class="project-title">
+                    <img src="/img/project.png" alt="calendar" width="40" height="40">
+                    <form method="POST" action="/edit/<%= project.idproject %>" class="edit-project">
+                        <input type="hidden" name="idproject" value="<%= project.idproject %>">
+                        <input type="text" name="projectname" class="project-title-input" value="<%= project.projectname %>">
+                        <button  class="edit-project-btn" type="submit" title="edit project"><img src="/img/edit-pr.png" width="30" height="34"> </button>
+                    </form>
+                    <form method="POST" action="/delete/<%= project.idproject %>" class="delete-project" >
+                        <button type="submit" class="delete-project-btn" title="delete project"><img src="/img/delete-pr.png" alt="delete" width="30" height="28"></button>
+                    </form>
+                </div>
+                <div class="add-task-wrapper">   
+                    <form method="POST" action="/task/create" class="add-task-in-project">
+                        <img src="/img/add-green.png" alt="delete" width="40" height="40">
+                        <input type="hidden" name="idproject" value="<%= project.idproject %>">
+                        <input name="task" class="field add-task-description" placeholder="Start typing here to create a task" required>
+                        <input name="date" type="date" class="field" required>
+                        <button  class="add-task-btn" type="submit">Add task</button>
+                    </form>
+                </div>
+                <div class="task-area">
+
+
+                <% tasks.forEach(function(obj){ %>     
+                    <div class="task-place">
+                    <% if (project.idproject == obj.idproject) { %>   
+                    
+                            <form action="/task/edit" method="POST" class="edit-task">
+                                <input type="hidden" name="idtasks" value="<%= obj.idtasks %>" />
+                                <div class="task-checkbox"><input type="checkbox" name="check-task"></div>
+                                <div class="task-text"><input type="text" value="<%= obj.taskcontent %>"  name="task" required></div>
+                                <div class="task-date"><input type="date" value="<%= obj.taskdeadline %>" name="date"></div>
+                                <button type="submit" title="edit task"><img src="/img/edit.png" alt="edit" width="20" height="20"></button>
+                            </form>
+                        
+                            <form action="/task/delete/<%= obj.idtasks %>" method="POST" class="delete-task">
+                                <button type="submit" title="delete task"><img src="/img/delete.jpg" alt="delete" width="20" height="20"></button>
+                            </form>
+                        
+                    <% } %> 
+
+                    </div>
+
+                <% }); %>
+                
+            </div>
+        </section>
+        <% } %> 
+    <% }); %>
+
+
+<form class="add-project" action="/create" method="POST">
+    <input type="hidden" name="iduser" value="<%= iduser %>">
+    <button type="submit" id="submit-project"><img src="/img/bl-btn.png">Add TODO List</button>
+</form>
+
+
+<%- include('footer.ejs') %>

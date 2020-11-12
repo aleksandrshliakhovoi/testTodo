@@ -1,45 +1,349 @@
-.content {
-    padding: 2%;
-    width: 800px;
-    margin: 1% auto;
-    border: 1px solid #efefef;
+/* Main */
 
-}
-
-a {
-    font-size: 16;
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #c203fc
-}
-
-.content h1, h2, h3 {
-
-    margin: 15px auto;
-    text-align: center;
+* {
+    padding: 0;
+    margin: 0;
     
-
 }
-.add-task {
 
-    padding: 2%;
-    margin: 1% auto;
-    width: 600px;
+body  {
+    background: linear-gradient(#C5DDE8, #EECFBA);
+    background: repeating-linear-gradient(#C5DDE8, #EECFBA, #C5DDE8, #EECFBA, #EECFBA, #C5DDE8)
+}
+
+.content {
+    
+    width: 800px;
     border: 1px solid #efefef;
+
+}
+
+.project {
+    margin: 1% auto;
+    width: 800px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius:10px;
+    padding-bottom: 1%;
+    background-color:#fff;
 }
 
 
-.add-task h1, h3 {
-    margin: 0 auto;
+/* NAV */
+.nav-wrapper {
+    position: relative;
+    background-color: #4B78B4;
+    font-family: Tahoma, Geneva, sans-serif;
+
+}
+
+ul.nav{
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style: none;
+}
+.nav li { 
+    display: inline; 
+}
+ul.nav a {
+    display: inline-block;
+    width: 4%;
+    padding:10px;
+    background-color: #4B78B4;
+    text-decoration: none;
+    color: #fff;
     text-align: center;
 }
+ul.nav a:hover{
+    background-color: #333;
+    color: #f4f4f4;
+}
 
 
-.edit {
-    padding: 2%;
-    margin: 1% auto;
-    width: 600px;
+
+/*addProject*/
+
+.project-title {
+    background-color:  #4B78B4;
+    height: 40px;
+}
+
+.add-project {
+    width: 215px;
+    font-weight: 600;
+    margin: 0 45%;
+}
+
+
+
+.add-project input {
+    height: 40px;
+    width: 210px;
+    text-align: center; 
+    
+}
+
+
+#submit-project {
+    border: 1px solid #4B78B4;
+    background-color:  #4B78B4;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 50px;
+    width: inherit;
+    position: relative;
+    cursor: pointer;
+    margin-top: 15px;
+    
+}
+
+
+#submit-project:hover {
+    background-color:  #6888b3;
+}
+
+#submit-project img {
+    position: absolute;
+    left:0;
+    top:5px;
+}
+
+
+
+
+
+/*Project area*/
+
+
+.project-title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+
+.edit-project {
+    width: 95%;
+    margin: 0 5px;
+}
+
+.edit-project input {
+    background-color:  #4B78B4;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.edit-project input {
+    outline: none;
+    border: none;
+    width: 90%;
+    
+    
+}
+
+.edit-project-btn {
+    
+    
+    border: none;
+    background-color:  #4B78B4;
+    cursor: pointer;
+    padding-left: 5%;
+    outline: none;
+    
+}
+
+
+
+.delete-project {
+    margin: 0 auto;
+    width: 8%;
+}
+
+
+.delete-project-btn {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color:  #4B78B4;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/*task-place*/
+
+.task-area {
+    background-color: #fff;
+}
+
+.task-place:hover {
+    background-color: #ebeb88;
+}
+
+.checked {
+    background-color: gray;
+}
+
+.task-place {
+
+    margin-top: 1px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 2px auto;
+    outline: none;
+    border: none;
+    
+}
+
+.task-place input {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.edit-task {
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1%;
+}
+.edit-task input[type="text"] {
+    width: 70%;
+    cursor: pointer;
+}
+
+.delete-task {
+    width: 8%;
+    padding-top: 1%;
+    margin-left: 3px;
+}
+
+
+.task-place button {
+    cursor: pointer;
+}
+
+
+.task-text {
+    width: 75%;
+}
+
+.task-text input, .task-date input {
+    outline: none;
+    border: none;
+    padding-left: 5px;
+}
+
+
+.task-checkbox {
+    padding: 0 4px;
+}
+
+.task-checkbox, .task-text, .task-date {
+    border: 1px solid#efefef;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+
+/*add task in current project*/
+
+.add-task-wrapper {
+    background-color: #CFCFCF;
+    padding: 5px;
+
+}
+
+
+.add-task-in-project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.add-task-in-project input {
+    height: 25px;
+    cursor: pointer;
+}
+
+.add-task-btn {
+    background-color: #6BA283;
+    color: #fff;
+    width: 90px; 
+    height: 30px;
+    text-align: center;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px; 
+    cursor: pointer;  
+}
+
+.add-task-btn:hover {
+    background-color: #88a595;
+}
+
+
+.add-task-description {
+    width: 65%;
+    height: 25px;
+
+}
+
+/* Login form*/
+
+
+.login-form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.login-form h1 {
+    text-align: center;
+    color: #4d4d4d;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+}
+.login-form input[type="password"],
+.login-form input[type="email"],
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    margin-bottom: 15px;
+    box-sizing:border-box;
+}
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #535b63;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.login-btn {
+    border: 1px solid #4B78B4;
+    background-color:  #4B78B4;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    margin: 5px auto;
+    
+}
+    
+    
+.login-btn:hover {
+    background-color:  #6888b3;
+
 }
