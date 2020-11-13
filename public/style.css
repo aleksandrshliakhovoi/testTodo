@@ -6,9 +6,14 @@
     
 }
 
-body  {
-    background: linear-gradient(#C5DDE8, #EECFBA);
-    background: repeating-linear-gradient(#C5DDE8, #EECFBA, #C5DDE8, #EECFBA, #EECFBA, #C5DDE8)
+body::before  {
+    
+    filter: blur(15px);
+}
+
+body {
+    background-image: url(img/gradient.svg);
+    
 }
 
 .content {
