@@ -26,8 +26,8 @@ router.post('/create', async (req, res) => {
 
         const taskcontent = req.body.task; 
         const idproject = +req.body.idproject;
-        const taskdeadline  = new Date(req.body.date).toLocaleDateString()
-        
+        //const taskdeadline  = new Date(req.body.date).toLocaleDateString()
+        const taskdeadline = req.body.date
         const task = await new Task(taskcontent, taskdeadline, idproject)
         await task.createTask()
     
