@@ -44,7 +44,8 @@ router.post('/edit', async (req, res) => {
     if (req.session.loggedin) {
 
         const taskcontent = req.body.task;
-        const taskdeadline = new Date(req.body.date).toLocaleDateString()
+        //const taskdeadline = new Date(req.body.date).toLocaleDateString()
+        const taskdeadline = req.body.date
         const id = req.body.idtasks;
 
         const task = new Task(taskcontent, taskdeadline)
