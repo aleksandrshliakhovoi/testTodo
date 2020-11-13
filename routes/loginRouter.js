@@ -26,7 +26,9 @@ router.post('/', async (req, res) => {
 			if(result){
 				return result
 			} else {
-				res.send('Incorrect Username!');
+				res.render('error.ejs', {
+					message: 'Incorrect Username!'
+				})
 			}	
 		})
 		.then(async (result) => {
@@ -39,11 +41,15 @@ router.post('/', async (req, res) => {
 				req.session.iduser = result.iduser
 				res.redirect('/')
 			} else {
-				res.send('Incorrect Password!');
+				res.render('error.ejs', {
+					message: 'Incorrect Password!'
+				})
 			}			
 		})
 	} else {
-		res.send('Please enter Username and Password!');
+		res.render('error.ejs', {
+			message: 'Please enter Username and Password!'
+		})
 	}
 })
 

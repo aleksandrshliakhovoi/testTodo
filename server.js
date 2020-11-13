@@ -43,7 +43,7 @@ app.use('/task', taskRouter)
 
 
 app.use(function(req, res, next) {
-    res.status(404).send('Sorry cant find that!');
+    res.status(404).render('error.ejs', {message: 'Sorry cant find that!'});
   });
 
 const port = process.env.PORT 

@@ -38,7 +38,9 @@ router.post('/create',  async (req, res) => {
     res.redirect('/')
 
     } else {
-		res.send('Please login to view this page!');
+        res.render('error.ejs', {
+            message: 'Please login to view this page!'
+        })
 	}
 })
 
@@ -55,7 +57,9 @@ router.post('/edit/:idproject',  async (req, res) => {
         res.redirect('/')
         
     } else {
-		res.send('Please login to view this page!');
+        res.render('error.ejs', {
+            message: 'Please login to view this page!'
+        })
 	}
 
 })
@@ -68,7 +72,9 @@ router.post('/delete/:idproject',  async (req, res) => {
         res.redirect('/')
 
     } else {
-		res.send('Please login to view this page!');
+		res.render('error.ejs', {
+            message: 'Please login to view this page!'
+        })
 	}
 
 
